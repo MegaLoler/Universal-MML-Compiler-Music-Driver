@@ -11,33 +11,34 @@ In addition there are drivers for accessing sound chips directly from your PC! A
 
 ## Directories
 
-`music_drivers` contains platform specific library implementations of the music driver.
-`music_players` contains platform specific players which wrap their corresponding music driver libraries. (Includes the pseudo-player which outputs to `.vgm`.)
-`mml_compiler` contains the MML compiler itself.
-`sound_chip_drivers` contains drivers for interfacing sound chips directly from your PC.
-`vgm_player` contains a `.vgm` player program that interfaces with sound chips connected directly to your PC.
-`examples` includes example music projects written in MML.
+* `music_drivers` contains platform specific library implementations of the music driver.
+* `music_players` contains platform specific players which wrap their corresponding music driver libraries. (Includes the pseudo-player which outputs to `.vgm`.)
+* `mml_compiler` contains the MML compiler itself.
+* `sound_chip_drivers` contains drivers for interfacing sound chips directly from your PC.
+* `vgm_player` contains a `.vgm` player program that interfaces with sound chips connected directly to your PC.
+* `examples` includes example music projects written in MML.
 
 ## Compiling and Installing
 
 `make` will compile the MML compiler, the music driver for PC, the sound chip drivers, the music player for PC, the pseudo player that outputs to `.vgm`, and the vgm player.
+
 `make install` will copy the MML compiler, the music player, the `.vgm` player, and the `.vgm` generator to `/usr/local/bin/`.
 
 To compile a music driver and player for a specific platform, type `make` followed by the platform:
-`make gb` will compile the driver and player for Game Boy.
-`make gba` will compile the driver and player for Game Boy Advance.
-`make famicom` will compile the driver and player for Famicom.
-`make zx` will compile the driver and player for ZX Spectrum.
-`make c64` will compile the driver and player for Commodore 64.
+* `make gb` will compile the driver and player for Game Boy.
+* `make gba` will compile the driver and player for Game Boy Advance.
+* `make famicom` will compile the driver and player for Famicom.
+* `make zx` will compile the driver and player for ZX Spectrum.
+* `make c64` will compile the driver and player for Commodore 64.
 
 Note that additional compilers and/or assemblers will be needed for each of these target platforms.
 
 ## Simple Usage
 
-`mml2m tune.mml > tune.m` will compile `tune.mml` file into `tune.m` file.
-`mplay tune.m` will play `tune.m` on whichever real sound chip hardware is attached to your PC.
-`m2vgm tune.m sid > tune.vgm` will take `tune.m` and output `tune.vgm` file for the SID chip. If no sound chips are provided then it will default to the prefered sound chips as specified by the `.m` file (in turn specified in the original `.mml` file).
-`vgmplay tune.vgm` will play `tune.vgm` on real sound chip hardware attached to your PC.
+* `mml2m tune.mml > tune.m` will compile `tune.mml` file into `tune.m` file.
+* `mplay tune.m` will play `tune.m` on whichever real sound chip hardware is attached to your PC.
+* `m2vgm tune.m sid > tune.vgm` will take `tune.m` and output `tune.vgm` file for the SID chip. If no sound chips are provided then it will default to the prefered sound chips as specified by the `.m` file (in turn specified in the original `.mml` file).
+* `vgmplay tune.vgm` will play `tune.vgm` on real sound chip hardware attached to your PC.
 
 I'd suggest creating a Makefile for your music project containing these commands for easy access. For example: `make compile`, `make play`, and `make vgm`.
 
